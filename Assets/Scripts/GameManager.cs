@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 {
     private int wins;
     [SerializeField]public float timer;
-    private bool MinigameActive = false;
     private bool GameRunning = true;
     private GameObject Minigame;
     public List<GameObject> Minigames = new List<GameObject>();
@@ -16,7 +15,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Minigame = Instantiate(Minigames[Random.Range(0, Minigames.Count)]);
     }
 
     // Update is called once per frame
@@ -26,21 +25,10 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        if(!MinigameActive)
-        {
-            timer = 6f;
-            Minigame = Instantiate(Minigames[Random.Range(0, Minigames.Count)]);
-            MinigameActive = true;
-        }
-        else
+        else if (timer >= 0)
         {
             timer -= Time.deltaTime;
             timerText.text = "Time: " + timer.ToString("0.00");
-        }
-        if (timer <= -1)
-        {
-            MinigameActive = false;
-            Destroy(Minigame);
         }
     }
 
@@ -53,13 +41,21 @@ public class GameManager : MonoBehaviour
     }
     public void Win()
     {
-        timer = 0;
         wins += 1;
+        StartCoroutine ("LoadGame", 1f);
     }
 
     IEnumerator LoadMenu(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         SceneManager.LoadScene("Menu");
+    }
+
+    IEnumerator LoadGame(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(Minigame);
+        Minigame = Instantiate(Minigames[Random.Range(0, Minigames.Count)]);
+        timer = 0f;
     }
 }

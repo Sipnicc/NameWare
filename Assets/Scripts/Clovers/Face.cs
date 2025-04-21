@@ -51,7 +51,7 @@ public class Face : MonoBehaviour
         }
         else
         {
-            // If the face is happy, the player wins the game.
+            // If the face is happy, the player wins the game.    
             GameObject.Find("GameManager").GetComponent<GameManager>().Win();
         }
     }

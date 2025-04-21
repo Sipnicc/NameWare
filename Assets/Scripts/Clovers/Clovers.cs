@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Clovers : MonoBehaviour
 {
-    private bool gameRunning = true;
     public GameObject SadFace;
     public GameObject HappyFace;
     private List<GameObject> Faces = new List<GameObject>();
@@ -15,6 +14,8 @@ public class Clovers : MonoBehaviour
     // within a specified range, and scaled to a uniform size.
     void Start()
     {
+        // Start the timer
+        GameObject.Find("GameManager").GetComponent<GameManager>().timer = 5f;
         for (int i = 0; i < 25; i++)
             {
                 GameObject sad = Instantiate(SadFace);
@@ -43,12 +44,11 @@ public class Clovers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameRunning)
+        print (GameObject.Find("GameManager").GetComponent<GameManager>().timer);
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().timer <= 0f)
         {
-            return;
-        }
-        if (GameObject.Find("GameManager").GetComponent<GameManager>().timer <=0)
-        {
+            // You lose
+            print("You lose!");
             GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
         }
     }
