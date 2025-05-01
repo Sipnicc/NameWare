@@ -412,6 +412,8 @@ MonoBehaviour:
   Minigames:
   - {fileID: 1791112561611333893, guid: 1bd4085d4779464419c1888932251ada, type: 3}
   - {fileID: 1593688555456263018, guid: 47633da268bc0334385cc649e402af79, type: 3}
+  - {fileID: 6886924656187458961, guid: dc7e17d8c60992a4eaddfbf8cfffd75c, type: 3}
+  - {fileID: 8641955274491826865, guid: 1fea9cf35490331478240d65fd9397bb, type: 3}
   timerText: {fileID: 256164747}
 --- !u!1 &1924154853
 GameObject:
