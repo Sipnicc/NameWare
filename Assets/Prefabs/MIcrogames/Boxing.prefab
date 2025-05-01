@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8740067954413163105}
   - component: {fileID: 2837420499988702602}
+  - component: {fileID: 2542994579369129077}
   m_Layer: 0
   m_Name: Name
   m_TagString: Untagged
@@ -156,7 +157,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e7e6638348a29364eac3a05403b8e795, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -168,6 +169,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2542994579369129077
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089577101978574027}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 706d13fc5faed564483c1efe8892e0c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6886924656187458961
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,8 +241,10 @@ MonoBehaviour:
   pointer: {fileID: 5482424444576606393}
   startPosition: -1.4
   endPosition: 1.4
-  speed: 0.5
+  speed: 10
   direction: 1
+  playerAnimator: {fileID: 2542994579369129077}
+  bagAnimator: {fileID: 2164625670243106194}
 --- !u!1 &8722500273281977574
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3176079872987497324}
   - component: {fileID: 9059574621198627892}
+  - component: {fileID: 2164625670243106194}
   m_Layer: 0
   m_Name: Bag
   m_TagString: Untagged
@@ -331,7 +356,7 @@ Transform:
   m_GameObject: {fileID: 8859428738363250458}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.11, y: 1.8, z: 0}
+  m_LocalPosition: {x: 3.2, y: 1.8, z: 0}
   m_LocalScale: {x: 0.77, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -389,3 +414,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2164625670243106194
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8859428738363250458}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b27f3634ff007834382a10786a1b7659, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
