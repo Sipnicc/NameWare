@@ -35,6 +35,10 @@ public class Face : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (!GameObject.Find("GameManager").GetComponent<GameManager>().gameRunning)
+        {
+            return;
+        }
         Faces.Remove(gameObject);
         // Destroy all the faces but this one.
         foreach (GameObject Face in Faces)
@@ -48,11 +52,14 @@ public class Face : MonoBehaviour
         {
             // If the face is not happy, the player loses the game.
             GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
+            print("You lose!");
         }
         else
         {
-            // If the face is happy, the player wins the game.    
+            // If the face is happy, the player wins the game.  
             GameObject.Find("GameManager").GetComponent<GameManager>().Win();
+            print("You win!");
+            
         }
     }
 }

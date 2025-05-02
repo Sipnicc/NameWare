@@ -38,6 +38,7 @@ public class Ball : MonoBehaviour
         if (GameObject.Find("GameManager").GetComponent<GameManager>().timer <= 0)
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().Win();
+            gameRunning = false;
         }
     }
 }

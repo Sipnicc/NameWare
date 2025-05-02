@@ -44,7 +44,10 @@ public class Clovers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print (GameObject.Find("GameManager").GetComponent<GameManager>().timer);
+        if (!GameObject.Find("GameManager").GetComponent<GameManager>().gameRunning)
+        {
+            return;
+        }
         if (GameObject.Find("GameManager").GetComponent<GameManager>().timer <= 0f)
         {
             // You lose

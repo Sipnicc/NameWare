@@ -8,10 +8,11 @@ public class GameManager : MonoBehaviour
 {
     private int wins;
     [SerializeField]public float timer;
-    private bool GameRunning = true;
+    [SerializeField]public bool gameRunning = true;
     private GameObject Minigame;
     public List<GameObject> Minigames = new List<GameObject>();
     public TextMeshProUGUI timerText;
+    public GameObject Door;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameRunning)
+        if (!gameRunning)
         {
             return;
         }
@@ -36,12 +37,13 @@ public class GameManager : MonoBehaviour
     {
         // Game over logic
         Debug.Log("Game Over");
-        GameRunning = false;
-        StartCoroutine ("LoadMenu", 1f);
+        gameRunning = false;
+        StartCoroutine ("LoadMenu", 0.5f);
     }
     public void Win()
     {
         wins += 1;
+        gameRunning = false;
         StartCoroutine ("LoadGame", 1f);
     }
 
@@ -54,8 +56,15 @@ public class GameManager : MonoBehaviour
     IEnumerator LoadGame(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        GameObject door = Instantiate(Door);
+        yield return new WaitForSeconds(0.5f);
         Destroy(Minigame);
         Minigame = Instantiate(Minigames[Random.Range(0, Minigames.Count)]);
         timer = 0f;
+        print("Game Loaded!");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(door);
+        print("No more door!");
+        gameRunning = true;
     }
 }
