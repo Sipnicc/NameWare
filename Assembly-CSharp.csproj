@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Clovers\Face.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\Seesaw\Ball.cs" />
+    <Compile Include="Assets\Scripts\Cups\Cup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

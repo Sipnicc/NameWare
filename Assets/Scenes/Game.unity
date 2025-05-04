@@ -460,15 +460,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2388772237530147614, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7546238
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2388772237530147614, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.4211226
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2388772237530147614, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.014779532
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2388772237530147614, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: m_LocalRotation.w
@@ -502,6 +502,14 @@ PrefabInstance:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 256164747}
+    - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
+      propertyPath: Minigames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
+      propertyPath: Minigames.Array.data[4]
+      value: 
+      objectReference: {fileID: 3772976042666894695, guid: 1b0d67bc09f2c144297b8ac3f65f4549, type: 3}
     - target: {fileID: 4364372396872395275, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: m_Name
       value: GameManager
