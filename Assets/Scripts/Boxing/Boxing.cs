@@ -12,6 +12,9 @@ public class Boxing : MonoBehaviour
     private bool clicked = false;
     public Animator playerAnimator;
     public Animator bagAnimator;
+    public AudioSource audioSource;
+    public AudioClip weakPunchSound;
+    public AudioClip strongPunchSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +37,15 @@ public class Boxing : MonoBehaviour
             {
                 playerAnimator.SetBool("Win", true);
                 bagAnimator.SetBool("Win", true);
+                // Play the strong punch sound.
+                audioSource.PlayOneShot(strongPunchSound);
                 GameObject.Find("GameManager").GetComponent<GameManager>().Win();
             }
             else
             {
                 playerAnimator.SetBool("Lose", true);
+                // Play the weak punch sound.
+                audioSource.PlayOneShot(weakPunchSound);
                 GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
             }
         }

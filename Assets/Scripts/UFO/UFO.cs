@@ -12,6 +12,10 @@ public class UFO : MonoBehaviour
     public float maxWait = 3f;
     private bool canMove = false;
     private bool minigameRunning = true;
+
+    public AudioSource audioSource;
+    public AudioClip ufoSound;
+    public AudioClip cameraSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +31,10 @@ public class UFO : MonoBehaviour
         // The player takes the picture.
         if (Input.GetKeyDown(KeyCode.Mouse0) && minigameRunning)
         {
+            // Play the camera sound.
+            // Stop the UFO sound.
+            audioSource.Stop();
+            audioSource.PlayOneShot(cameraSound);
             if (Ship.transform.position.x >= -5.6f && Ship.transform.position.x <= 5.6f)
             {
                 GameObject.Find("GameManager").GetComponent<GameManager>().Win();
@@ -50,6 +58,8 @@ public class UFO : MonoBehaviour
         // The UFO starts moving after the wait time.
         if (canMove && minigameRunning)
         {
+            // Play the UFO sound.
+            audioSource.PlayOneShot(ufoSound);
             Ship.transform.Translate(speed * Time.deltaTime, speed * Time.deltaTime, 0);
             if (Ship.transform.position.x >= 7f)
             {

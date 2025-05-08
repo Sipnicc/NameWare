@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         else if (timer >= 0)
         {
             timer -= Time.deltaTime;
-            timerText.text = "Time: " + timer.ToString("0.00");
+            timerText.text = timer.ToString("0");
         }
     }
 
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadGame(float seconds)
     {
+        timerText.text = "0";
         yield return new WaitForSeconds(seconds);
         GameObject door = Instantiate(Door);
         yield return new WaitForSeconds(0.5f);

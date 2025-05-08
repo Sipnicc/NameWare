@@ -22,6 +22,9 @@ public class Cups : MonoBehaviour
     private GameObject cup1;
     private GameObject cup2;
 
+    public AudioSource audioSource;
+    public AudioClip cupSound;
+
     private Vector3 cup1Objective;
     private Vector3 cup2Objective;
 
@@ -45,6 +48,11 @@ public class Cups : MonoBehaviour
                 {
                     // Pick the cups randomly from the list of cups.
                     PickCups();
+                    // Play the sound.
+                    if (cup1 != cup2)
+                    {
+                        audioSource.PlayOneShot(cupSound);
+                    }
                 }
                 else if (cup1.transform.position == cup1Objective && cup2.transform.position == cup2Objective)
                 {

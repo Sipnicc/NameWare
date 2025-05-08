@@ -154,9 +154,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1924154857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -25}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &256164747
@@ -179,10 +179,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time: '
+  m_text: 0.00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3b0ea30266bc77048980ddec2a6c8160, type: 2}
+  m_sharedMaterial: {fileID: -6577585093556431308, guid: 3b0ea30266bc77048980ddec2a6c8160, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -509,7 +509,7 @@ PrefabInstance:
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: Minigames.Array.data[0]
       value: 
-      objectReference: {fileID: 3772976042666894695, guid: 1b0d67bc09f2c144297b8ac3f65f4549, type: 3}
+      objectReference: {fileID: 8641955274491826865, guid: 1fea9cf35490331478240d65fd9397bb, type: 3}
     - target: {fileID: 4364372396872395275, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: m_Name
       value: GameManager
