@@ -60,7 +60,7 @@ public class UFO : MonoBehaviour
         {
             // Play the UFO sound.
             audioSource.PlayOneShot(ufoSound);
-            Ship.transform.Translate(speed * Time.deltaTime, speed * Time.deltaTime, 0);
+            Ship.transform.Translate(speed * Time.deltaTime * GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed / 20, speed * Time.deltaTime * GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed / 20, 0);
             if (Ship.transform.position.x >= 7f)
             {
                 GameObject.Find("GameManager").GetComponent<GameManager>().Lose();

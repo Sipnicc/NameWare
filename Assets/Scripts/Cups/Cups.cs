@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cups : MonoBehaviour
 {
+    public int minigamesPlayed;
     public int maxChanges = 5;
     [SerializeField] public int changes = 0;
 
@@ -35,8 +36,8 @@ public class Cups : MonoBehaviour
         CorrectCup = CupsList[Random.Range(0, CupsList.Count)];
         // Put the ball under the correct cup.
         Ball.transform.position = new Vector3 (CorrectCup.transform.position.x, Ball.transform.position.y, Ball.transform.position.z);
+        minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;    
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -67,8 +68,8 @@ public class Cups : MonoBehaviour
                 else
                 {
                     // Move the cups to their objectives.
-                    cup1.transform.position = Vector3.MoveTowards(cup1.transform.position, cup1Objective, speed * Time.deltaTime);
-                    cup2.transform.position = Vector3.MoveTowards(cup2.transform.position, cup2Objective, speed * Time.deltaTime);
+                    cup1.transform.position = Vector3.MoveTowards(cup1.transform.position, cup1Objective, speed * Time.deltaTime * minigamesPlayed / 5);
+                    cup2.transform.position = Vector3.MoveTowards(cup2.transform.position, cup2Objective, speed * Time.deltaTime * minigamesPlayed / 5);
                 }
             }
             // Anchor the ball to the correct cup.
