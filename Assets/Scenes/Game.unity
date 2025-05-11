@@ -214,6 +214,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1455383825 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6096350699684256552, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
+  m_PrefabInstance: {fileID: 4231850331490199803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1606524658
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,13 +504,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
+      propertyPath: winClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c2760890a2d1054c8a28ce0d040e7ca, type: 3}
+    - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
+      propertyPath: loseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24d1edc8a804fcd4392d3b69e20e980b, type: 3}
+    - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
+      propertyPath: BlackFade
+      value: 
+      objectReference: {fileID: 1657042078955205701, guid: 95a3655e1972f0a42940b2503ba1e5a6, type: 3}
+    - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 1757003891}
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1455383825}
+    - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: Minigames.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
+      propertyPath: Minigames.Array.data[2]
+      value: 
+      objectReference: {fileID: 6886924656187458961, guid: dc7e17d8c60992a4eaddfbf8cfffd75c, type: 3}
+    - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
+      propertyPath: Minigames.Array.data[3]
+      value: 
+      objectReference: {fileID: 3772976042666894695, guid: 1b0d67bc09f2c144297b8ac3f65f4549, type: 3}
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: Minigames.Array.data[4]
       value: 

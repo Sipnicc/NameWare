@@ -9,29 +9,29 @@ public class Boxing : MonoBehaviour
     public float endPosition;
     public float speed = 5f;
     public int direction = 1;
-    private bool clicked = false;
     public Animator playerAnimator;
     public Animator bagAnimator;
     public AudioSource audioSource;
     public AudioClip weakPunchSound;
     public AudioClip strongPunchSound;
+    private int minigamesPlayed;
     // Start is called before the first frame update
     void Start()
     {
         // Start the timer
         GameObject.Find("GameManager").GetComponent<GameManager>().timer = 5f;
+        minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (clicked)
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().gameRunning == false)
         {
             return;
         }
         if (Input.anyKeyDown)
         {
-            clicked = true;
             GameObject.Find("GameManager").GetComponent<GameManager>().timer = 0f;
             if (pointer.transform.position.y >= startPosition + 2.13f)
             {
@@ -49,7 +49,7 @@ public class Boxing : MonoBehaviour
                 GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
             }
         }
-        pointer.transform.Translate(0,direction*speed*Time.deltaTime,0);
+        pointer.transform.Translate(0,direction*speed*Time.deltaTime * minigamesPlayed / 10,0);
         if (pointer.transform.position.y >= endPosition)
         {
             direction = -1;

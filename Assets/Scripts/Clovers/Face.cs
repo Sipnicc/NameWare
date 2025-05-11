@@ -30,7 +30,7 @@ public class Face : MonoBehaviour
         {
             direction_x = -direction_x;
         }
-        transform.Translate(direction_x * speed * Time.deltaTime, direction_y * speed * Time.deltaTime, 0);
+        transform.Translate(direction_x * speed * Time.deltaTime * GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed / 10, direction_y * speed * GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed / 10 * Time.deltaTime, 0);
     }
 
     void OnMouseDrag()

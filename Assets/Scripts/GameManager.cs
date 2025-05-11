@@ -6,17 +6,22 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private int wins;
+    [SerializeField]public int minigamesPlayed = 1;
     [SerializeField]public float timer;
     [SerializeField]public bool gameRunning = true;
     private GameObject Minigame;
     public List<GameObject> Minigames = new List<GameObject>();
     public TextMeshProUGUI timerText;
     public GameObject Door;
+    public GameObject BlackFade;
+
+    public AudioSource audioSource;
+    public AudioClip winClip;
+    public AudioClip loseClip;
     // Start is called before the first frame update
     void Start()
     {
-        Minigame = Instantiate(Minigames[Random.Range(0, Minigames.Count)]);
+        StartCoroutine("LoadGame", 1f);
     }
 
     // Update is called once per frame
@@ -35,15 +40,28 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
+        if (!gameRunning)
+        {
+            return;
+        }
         // Game over logic
         Debug.Log("Game Over");
         gameRunning = false;
-        StartCoroutine ("LoadMenu", 0.5f);
+        // Play the lose sound
+        audioSource.PlayOneShot(loseClip);
+        Instantiate(BlackFade);
+        StartCoroutine ("LoadMenu", 4f);
     }
     public void Win()
     {
-        wins += 1;
+        if (!gameRunning)
+        {
+            return;
+        }
+        minigamesPlayed += 1;
         gameRunning = false;
+        // Play the win sound!
+        audioSource.PlayOneShot(winClip);
         StartCoroutine ("LoadGame", 1f);
     }
 
@@ -58,6 +76,7 @@ public class GameManager : MonoBehaviour
         timerText.text = "0";
         yield return new WaitForSeconds(seconds);
         GameObject door = Instantiate(Door);
+        GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>().text = minigamesPlayed.ToString();
         yield return new WaitForSeconds(0.5f);
         Destroy(Minigame);
         Minigame = Instantiate(Minigames[Random.Range(0, Minigames.Count)]);
