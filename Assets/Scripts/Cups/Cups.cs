@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Cups : MonoBehaviour
 {
-    public int minigamesPlayed;
+    private int minigamesPlayed;
+    private int maxDifficulty = 50;
     public int maxChanges = 5;
     [SerializeField] public int changes = 0;
 
@@ -36,7 +37,8 @@ public class Cups : MonoBehaviour
         CorrectCup = CupsList[Random.Range(0, CupsList.Count)];
         // Put the ball under the correct cup.
         Ball.transform.position = new Vector3 (CorrectCup.transform.position.x, Ball.transform.position.y, Ball.transform.position.z);
-        minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;    
+        minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;
+        maxDifficulty = GameObject.Find("GameManager").GetComponent<GameManager>().maxDifficulty;    
     }
     // Update is called once per frame
     void Update()
@@ -68,8 +70,8 @@ public class Cups : MonoBehaviour
                 else
                 {
                     // Move the cups to their objectives.
-                    cup1.transform.position = Vector3.MoveTowards(cup1.transform.position, cup1Objective, speed * Time.deltaTime * minigamesPlayed / 5);
-                    cup2.transform.position = Vector3.MoveTowards(cup2.transform.position, cup2Objective, speed * Time.deltaTime * minigamesPlayed / 5);
+                    cup1.transform.position = Vector3.MoveTowards(cup1.transform.position, cup1Objective, speed * Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/2, 1, maxDifficulty/2));
+                    cup2.transform.position = Vector3.MoveTowards(cup2.transform.position, cup2Objective, speed * Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/2, 1, maxDifficulty/2));
                 }
             }
             // Anchor the ball to the correct cup.

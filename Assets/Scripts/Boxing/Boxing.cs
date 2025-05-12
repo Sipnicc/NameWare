@@ -15,12 +15,14 @@ public class Boxing : MonoBehaviour
     public AudioClip weakPunchSound;
     public AudioClip strongPunchSound;
     private int minigamesPlayed;
+    private int maxDifficulty = 50;
     // Start is called before the first frame update
     void Start()
     {
         // Start the timer
         GameObject.Find("GameManager").GetComponent<GameManager>().timer = 5f;
         minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;
+        maxDifficulty = GameObject.Find("GameManager").GetComponent<GameManager>().maxDifficulty;
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class Boxing : MonoBehaviour
         {
             return;
         }
+        pointer.transform.Translate(0,direction*speed*Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/3, 1, maxDifficulty/3),0);
         if (Input.anyKeyDown)
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().timer = 0f;
@@ -49,7 +52,6 @@ public class Boxing : MonoBehaviour
                 GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
             }
         }
-        pointer.transform.Translate(0,direction*speed*Time.deltaTime * minigamesPlayed / 10,0);
         if (pointer.transform.position.y >= endPosition)
         {
             direction = -1;
@@ -57,6 +59,10 @@ public class Boxing : MonoBehaviour
         else if (pointer.transform.position.y <= startPosition)
         {
             direction = 1;
+        }
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().timer <= 0f)
+        {
+            GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
         }
     }
 }

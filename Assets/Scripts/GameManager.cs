@@ -7,6 +7,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]public int minigamesPlayed = 1;
+    public int maxDifficulty = 50;
     [SerializeField]public float timer;
     [SerializeField]public bool gameRunning = true;
     private GameObject Minigame;

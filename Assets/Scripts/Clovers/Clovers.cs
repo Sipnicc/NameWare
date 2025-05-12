@@ -30,7 +30,7 @@ public class Clovers : MonoBehaviour
         // Instantiate a happy face at a random position within the specified range.
         // The happy face is the one that the player will be looking for.
         GameObject happy = Instantiate(HappyFace);
-        happy.transform.position = new Vector3(Random.Range(-4, 4), Random.Range(-4, 4), 0);
+        happy.transform.position = new Vector3(Random.Range(-4, 4), Random.Range(-4, 4), -1);
         happy.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         happy.transform.parent = transform;
         Faces.Add(happy);

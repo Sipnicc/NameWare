@@ -16,6 +16,9 @@ public class UFO : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip ufoSound;
     public AudioClip cameraSound;
+
+    private int minigamesPlayed;
+    private int maxDifficulty = 50;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,8 @@ public class UFO : MonoBehaviour
         // The UFO will move into the screen after a random wait time between minWait and maxWait seconds.
         Ship.transform.position = new Vector3(-7,-7,0);
         StartCoroutine(waitforstart(Random.Range(minWait, maxWait)));
+        minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;
+        maxDifficulty = GameObject.Find("GameManager").GetComponent<GameManager>().maxDifficulty;
     }
 
     // Update is called once per frame
@@ -60,7 +65,7 @@ public class UFO : MonoBehaviour
         {
             // Play the UFO sound.
             audioSource.PlayOneShot(ufoSound);
-            Ship.transform.Translate(speed * Time.deltaTime * GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed / 20, speed * Time.deltaTime * GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed / 20, 0);
+            Ship.transform.Translate(speed * Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/3, 1, maxDifficulty/3), speed * Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/3, 1, maxDifficulty/3), 0);
             if (Ship.transform.position.x >= 7f)
             {
                 GameObject.Find("GameManager").GetComponent<GameManager>().Lose();

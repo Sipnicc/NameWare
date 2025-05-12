@@ -10,11 +10,16 @@ public class Face : MonoBehaviour
     private float direction_y = 1;
     private float direction_x = 1;
     public float speed = 2f;
+    
+    private int minigamesPlayed;
+    private int maxDifficulty = 50;
     // Start is called before the first frame update
     void Start()
     {
         direction_x = Random.Range(-5, 5);
         direction_y = Random.Range(-5, 5);
+        minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;
+        maxDifficulty = GameObject.Find("GameManager").GetComponent<GameManager>().maxDifficulty;
     }
 
     // Update is called once per frame
@@ -30,7 +35,7 @@ public class Face : MonoBehaviour
         {
             direction_x = -direction_x;
         }
-        transform.Translate(direction_x * speed * Time.deltaTime * GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed / 10, direction_y * speed * GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed / 10 * Time.deltaTime, 0);
+        transform.Translate(direction_x * speed * Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/2, 1, maxDifficulty/2), direction_y * speed * GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed / 10 * Time.deltaTime, 0);
     }
 
     void OnMouseDrag()
