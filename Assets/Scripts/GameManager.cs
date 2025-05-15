@@ -48,6 +48,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         gameRunning = false;
         // Play the lose sound
+        if (minigamesPlayed > PlayerPrefs.GetInt("HighestScore"))
+        {
+            PlayerPrefs.SetInt("HighestScore", minigamesPlayed);
+        }
         audioSource.PlayOneShot(loseClip);
         Instantiate(BlackFade);
         StartCoroutine ("LoadMenu", 4f);
