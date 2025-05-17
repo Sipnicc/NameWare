@@ -13,8 +13,17 @@ public class Seesaw : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Platform.transform.Rotate(0, 0, Input.GetAxis("Horizontal") * -rotationSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            return;
+        }
+        Platform.transform.Rotate(0, 0, Input.GetAxis("Horizontal") * -rotationSpeed * Time.fixedDeltaTime);
+    }
+
+    public void RotateButtons(int direction)
+    {
+        Platform.transform.Rotate(0, 0, direction * -rotationSpeed * Time.deltaTime);
     }
 }

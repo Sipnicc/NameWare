@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Cups\Cups.cs" />
     <Compile Include="Assets\Scripts\UFO\UFO.cs" />
     <Compile Include="Assets\Scripts\Clovers\Clovers.cs" />
+    <Compile Include="Assets\Scripts\Seesaw\ArrowButton.cs" />
     <Compile Include="Assets\Scripts\Boxing\Boxing.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Clovers\Face.cs" />

@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        // Time is back to normal.
+        Time.timeScale = 1;
         // Game over logic
         Debug.Log("Game Over");
         gameRunning = false;
@@ -59,6 +61,8 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        // Time is back to normal.
+        Time.timeScale = 1;
         minigamesPlayed += 1;
         gameRunning = false;
         // Play the win sound!
