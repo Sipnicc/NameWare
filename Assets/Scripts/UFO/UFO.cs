@@ -34,7 +34,7 @@ public class UFO : MonoBehaviour
     void Update()
     {
         // The player takes the picture.
-        if (Input.AnyKeyDown && minigameRunning)
+        if (Input.anyKeyDown && minigameRunning)
         {
             // Play the camera sound.
             // Stop the UFO sound.
