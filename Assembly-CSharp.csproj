@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Seesaw\Seesaw.cs" />
     <Compile Include="Assets\Scripts\Cups\Cups.cs" />
+    <Compile Include="Assets\Scripts\Highway\HighwayCar.cs" />
     <Compile Include="Assets\Scripts\UFO\UFO.cs" />
     <Compile Include="Assets\Scripts\Clovers\Clovers.cs" />
     <Compile Include="Assets\Scripts\Seesaw\ArrowButton.cs" />
