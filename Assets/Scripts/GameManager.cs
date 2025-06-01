@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         }
         else if (timer >= 0)
         {
-            timer -= Time.deltaTime;
+            timer -= Time.deltaTime/Time.timeScale;
             timerText.text = timer.ToString("0");
         }
     }

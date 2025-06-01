@@ -32,5 +32,10 @@ public class Menu : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Testing");
         }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            PlayerPrefs.SetInt("ButtonsActive", PlayerPrefs.GetInt("ButtonsActive") == 1 ? 0 : 1);
+            print("Buttons Active: " + PlayerPrefs.GetInt("ButtonsActive"));
+        }
     }
 }
