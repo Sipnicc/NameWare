@@ -10,7 +10,6 @@ public class Face : MonoBehaviour
     private float direction_y = 1;
     private float direction_x = 1;
     public float speed = 2f;
-    
     private int minigamesPlayed;
     private int maxDifficulty = 50;
     // Start is called before the first frame update

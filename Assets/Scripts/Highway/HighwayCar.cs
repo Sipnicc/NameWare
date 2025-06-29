@@ -10,7 +10,10 @@ public class HighwayCar : MonoBehaviour
     private float carSpawnTimer = 0f;
     private int maxDifficulty;
     private int minigamesPlayed;
+    private int direction;
     public Transform Road;
+    public Vector3 ScreenMousePosition;
+    public Vector3 WorldMousePosition;
     public GameObject BadCarPrefab;
     public GameObject WarningSignPrefab;
     private void Start()
@@ -28,14 +31,31 @@ public class HighwayCar : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        // Car movement
+        GetMousePosition();
+        if (Input.GetKey(KeyCode.Mouse0))
         {
-            Move(1);
+            if (WorldMousePosition.x > 0)
+            {
+                transform.Translate(0, -1 * speed * Time.deltaTime, 0);
+            }
+            else
+            {
+                transform.Translate(0, 1 * speed * Time.deltaTime, 0);
+            }
         }
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        else
         {
-            Move(-1);
+            if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.Translate(0, -1 * speed * Time.deltaTime, 0);
+            }
+            if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.Translate(0, 1 * speed * Time.deltaTime, 0);
+            }
         }
+        transform.position = new Vector3 (Mathf.Clamp(transform.position.x, -4.42f, 4.42f), transform.position.y, transform.position.z);
 
         // Move the road downwards.
         if (Road.transform.position.y <= -10f)
@@ -46,6 +66,7 @@ public class HighwayCar : MonoBehaviour
         {
             Road.transform.position += new Vector3(0, -speed * Time.deltaTime, 0);
         }
+        // Car spawner
         carSpawnTimer += Time.deltaTime;
         if (carSpawnTimer >= carSpawnInterval)
         {
@@ -57,10 +78,6 @@ public class HighwayCar : MonoBehaviour
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().Win();
         }
-    }
-    public void Move(int direction)
-    {
-        transform.Translate(0, -direction * speed * Time.deltaTime, 0);
     }
 
     IEnumerator SpawnCar(float xPosition)
@@ -81,5 +98,11 @@ public class HighwayCar : MonoBehaviour
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
         }
+    }
+
+    private void GetMousePosition ()
+    {
+        ScreenMousePosition = Input.mousePosition;
+        WorldMousePosition = Camera.main.ScreenToWorldPoint(ScreenMousePosition);
     }
 }

@@ -7,7 +7,7 @@ public class ArrowButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.GetInt("ButtonsActive") == 0)
+        if (PlayerPrefs.GetInt("ButtonsInactive") == 1)
         {
             gameObject.SetActive(false);
         }

@@ -34,8 +34,8 @@ public class Menu : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            PlayerPrefs.SetInt("ButtonsActive", PlayerPrefs.GetInt("ButtonsActive") == 1 ? 0 : 1);
-            print("Buttons Active: " + PlayerPrefs.GetInt("ButtonsActive"));
+            PlayerPrefs.SetInt("ButtonsInactive", PlayerPrefs.GetInt("ButtonsInactive") == 1 ? 0 : 1);
+            print("Buttons Active: " + PlayerPrefs.GetInt("ButtonsInactive"));
         }
     }
 }
