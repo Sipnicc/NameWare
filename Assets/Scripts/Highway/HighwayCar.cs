@@ -56,16 +56,6 @@ public class HighwayCar : MonoBehaviour
             }
         }
         transform.position = new Vector3 (Mathf.Clamp(transform.position.x, -4.42f, 4.42f), transform.position.y, transform.position.z);
-
-        // Move the road downwards.
-        if (Road.transform.position.y <= -10f)
-        {
-            Road.transform.position = new Vector3(0, 0, 0);
-        }
-        else
-        {
-            Road.transform.position += new Vector3(0, -speed * Time.deltaTime, 0);
-        }
         // Car spawner
         carSpawnTimer += Time.deltaTime;
         if (carSpawnTimer >= carSpawnInterval)
