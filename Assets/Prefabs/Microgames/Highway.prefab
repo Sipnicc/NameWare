@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4854387703588124617}
-  - component: {fileID: 7602272717035122979}
+  - component: {fileID: 4977258208193550897}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -156,7 +156,7 @@ Transform:
   - {fileID: 8108934269652128292}
   m_Father: {fileID: 1274337100350035025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7602272717035122979
+--- !u!95 &4977258208193550897
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -545,6 +545,10 @@ PrefabInstance:
     - target: {fileID: 1219304189250797453, guid: b349af602b894c54bb5612d91b4a58f8, type: 3}
       propertyPath: m_text
       value: Avoid!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219304189250797453, guid: b349af602b894c54bb5612d91b4a58f8, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 1778921615450598198, guid: b349af602b894c54bb5612d91b4a58f8, type: 3}
       propertyPath: m_Name

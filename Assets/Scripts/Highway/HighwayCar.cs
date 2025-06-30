@@ -29,6 +29,10 @@ public class HighwayCar : MonoBehaviour
     {
         if (GameObject.Find("GameManager").GetComponent<GameManager>().gameRunning == false)
         {
+            if (GameObject.Find("GameManager").GetComponent<GameManager>().timer <= 0f)
+            {
+                transform.Translate(15 * Time.deltaTime, 0, 0);
+            }
             return;
         }
         // Car movement
@@ -66,6 +70,7 @@ public class HighwayCar : MonoBehaviour
         }
         if (GameObject.Find("GameManager").GetComponent<GameManager>().timer <= 0f)
         {
+            
             GameObject.Find("GameManager").GetComponent<GameManager>().Win();
         }
     }
@@ -86,7 +91,14 @@ public class HighwayCar : MonoBehaviour
     {
         if (col.gameObject.name == "BadCar")
         {
-            GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
+            if (GameObject.Find("GameManager").GetComponent<GameManager>().gameRunning == false)
+            {
+                Destroy(col.gameObject);
+            }
+            else
+            {
+                GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
+            }
         }
     }
 

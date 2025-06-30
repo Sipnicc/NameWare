@@ -17,7 +17,10 @@ public class BadCar : MonoBehaviour
     {
         if (GameObject.Find("GameManager").GetComponent<GameManager>().gameRunning == false)
         {
-            return;
+            if (GameObject.Find("GameManager").GetComponent<GameManager>().timer > 0f)
+            {
+                return;
+            }
         }
         transform.position = new Vector3 (transform.position.x, transform.position.y - speed * Time.deltaTime, transform.position.z);
     }
