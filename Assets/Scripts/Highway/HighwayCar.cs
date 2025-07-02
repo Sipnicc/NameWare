@@ -16,6 +16,7 @@ public class HighwayCar : MonoBehaviour
     public Vector3 WorldMousePosition;
     public GameObject BadCarPrefab;
     public GameObject WarningSignPrefab;
+    public GameObject ExplosionPrefab;
     private void Start()
     {
         maxDifficulty = GameObject.Find("GameManager").GetComponent<GameManager>().maxDifficulty;
@@ -84,7 +85,7 @@ public class HighwayCar : MonoBehaviour
         // Instantiate a bad car at the specified x position.
         GameObject car = Instantiate(BadCarPrefab, new Vector3(xPosition, 6f, 0), Quaternion.identity);
         car.transform.parent = gameObject.transform.parent;
-        car.transform.Rotate(0, 0, -90); // Rotate the car to face downwards.
+        car.transform.Rotate(0, 0, 90); // Rotate the car to face upwards.
     }
     
     void OnTriggerEnter2D(Collider2D col)
@@ -93,11 +94,16 @@ public class HighwayCar : MonoBehaviour
         {
             if (GameObject.Find("GameManager").GetComponent<GameManager>().gameRunning == false)
             {
+                Instantiate(ExplosionPrefab, col.gameObject.transform.position, Quaternion.identity);
                 Destroy(col.gameObject);
             }
             else
             {
+                Instantiate(ExplosionPrefab, col.gameObject.transform.position, Quaternion.identity);
+                Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+                Destroy (col.gameObject);
                 GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
+                Destroy(gameObject);
             }
         }
     }

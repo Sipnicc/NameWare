@@ -374,6 +374,7 @@ MonoBehaviour:
   WorldMousePosition: {x: 0, y: 0, z: 0}
   BadCarPrefab: {fileID: 2967960530004445873, guid: af277babd8bd7264d8e49eb4269ef654, type: 3}
   WarningSignPrefab: {fileID: 7267724286863454595, guid: e738bdd734999bb48975234743021c3c, type: 3}
+  ExplosionPrefab: {fileID: 3465579247374300583, guid: 7fa551771273e69cfa6218769c8b6b0c, type: 3}
 --- !u!61 &8191350514135144284
 BoxCollider2D:
   m_ObjectHideFlags: 0
