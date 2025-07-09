@@ -21,7 +21,7 @@ public class Ball : MonoBehaviour
         // Push the ball in a random direction
         rb.AddForce(new Vector2(3*(Random.Range(0,2)*2-1), 0f), ForceMode2D.Impulse);
         // Scale the speed
-        Time.timeScale = Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/3, 1, maxDifficulty/25);
+        Time.timeScale = Mathf.Clamp(0.05f * minigamesPlayed, 1.5f, 2.5f);
         print ("Speed: " + Time.timeScale);
     }
 

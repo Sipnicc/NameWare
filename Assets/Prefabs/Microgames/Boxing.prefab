@@ -345,6 +345,7 @@ MonoBehaviour:
   audioSource: {fileID: 6825953562618818298}
   weakPunchSound: {fileID: 8300000, guid: 5e2cc360a5d2a5543bc140dfa89d05c2, type: 3}
   strongPunchSound: {fileID: 8300000, guid: 1bb38b3bea6a7674c9628fb2235d8ece, type: 3}
+  maxDifficulty: 12
 --- !u!82 &6825953562618818298
 AudioSource:
   m_ObjectHideFlags: 0

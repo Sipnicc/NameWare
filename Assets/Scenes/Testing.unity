@@ -569,7 +569,7 @@ PrefabInstance:
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: 'Minigames.Array.data[0]'
       value: 
-      objectReference: {fileID: 7056963784322535644, guid: 118fc355e3a15d526a27d1f5e8414bd9, type: 3}
+      objectReference: {fileID: 48460050376786153, guid: 57942c1557b6eb2fc8b9f0665dfed9ca, type: 3}
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: 'Minigames.Array.data[1]'
       value: 

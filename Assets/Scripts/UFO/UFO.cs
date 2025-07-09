@@ -18,7 +18,7 @@ public class UFO : MonoBehaviour
     public AudioClip cameraSound;
 
     private int minigamesPlayed;
-    private int maxDifficulty = 50;
+    public int maxDifficulty = 50;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +27,12 @@ public class UFO : MonoBehaviour
         Ship.transform.position = new Vector3(-7,-7,0);
         StartCoroutine(waitforstart(Random.Range(minWait, maxWait)));
         minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;
-        maxDifficulty = GameObject.Find("GameManager").GetComponent<GameManager>().maxDifficulty;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().gameRunning == false) return;
         // The player takes the picture.
         if (Input.anyKeyDown && minigameRunning)
         {
@@ -40,7 +40,7 @@ public class UFO : MonoBehaviour
             // Stop the UFO sound.
             audioSource.Stop();
             audioSource.PlayOneShot(cameraSound);
-            if (Ship.transform.position.x >= -5.6f && Ship.transform.position.x <= 5.6f)
+            if (Ship.transform.position.x >= -5.3f && Ship.transform.position.x <= 5.6f)
             {
                 GameObject.Find("GameManager").GetComponent<GameManager>().Win();
                 print (Ship.transform.position.x);
@@ -50,7 +50,6 @@ public class UFO : MonoBehaviour
                 GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
             }
             // If the mouse is clicked and the minigame is running, stop the minigame and create a flash effect.
-            minigameRunning = false;
             canMove = false;
             Overlay.SetActive(false);
             // Create a flash mouse is clicked.
@@ -58,14 +57,13 @@ public class UFO : MonoBehaviour
             _Flash.transform.parent = transform;
             transform.Rotate(0, 0, 15);
             transform.localScale = new Vector3 (0.8f, 0.8f, 0.8f);
-            Ship.GetComponent<PolygonCollider2D>().enabled = true;
         }
         // The UFO starts moving after the wait time.
         if (canMove && minigameRunning)
         {
             // Play the UFO sound.
             audioSource.PlayOneShot(ufoSound);
-            Ship.transform.Translate(speed * Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/3, 1, maxDifficulty/3), speed * Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/3, 1, maxDifficulty/3), 0);
+            Ship.transform.Translate(Mathf.Clamp(speed * Time.deltaTime * minigamesPlayed*0.028f, 1, maxDifficulty) , Mathf.Clamp(speed * Time.deltaTime * minigamesPlayed*0.028f, 1, maxDifficulty), 0);
             if (Ship.transform.position.x >= 7f)
             {
                 GameObject.Find("GameManager").GetComponent<GameManager>().Lose();

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Petal : MonoBehaviour
 {
     private LovesMe LovesMeScript;
+    private Animator FaceAnimator;
     public Rigidbody2D rb2d;
     public SpriteRenderer Sprite;
 
@@ -11,11 +12,18 @@ public class Petal : MonoBehaviour
     private int minigamesPlayed;
     public int rotationSpeed;
     private bool FirstPull = true;
+
+    private AudioSource audioPlayer;
+    public AudioClip lovesMeClip;
+    public AudioClip lovesMeNotClip;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;
-        LovesMeScript = gameObject.transform.parent.parent.GetComponent<LovesMe>();
+        LovesMeScript = transform.parent.parent.GetComponent<LovesMe>();
+        audioPlayer = transform.parent.parent.GetComponent<AudioSource>();
+        FaceAnimator = GameObject.Find("Flower").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +44,20 @@ public class Petal : MonoBehaviour
         if (FirstPull)
         {
             LovesMeScript.petals --;
+            if (LovesMeScript.petals % 2 == 0)
+            {
+                if (LovesMeScript.petals == 0)
+                {
+                    FaceAnimator.SetBool("Win", true);
+                }
+                FaceAnimator.SetBool("LovesMe", true);
+                audioPlayer.PlayOneShot(lovesMeClip);
+            }
+            else
+            {
+                FaceAnimator.SetBool("LovesMe", false);
+                audioPlayer.PlayOneShot(lovesMeNotClip);
+            }
             FirstPull = false;
         }
         transform.position = new Vector3 (transform.position.x, transform.position.y, 1); // Move the petal backwards so it doesn't interfere with the other petals.

@@ -184,6 +184,8 @@ MonoBehaviour:
   Sprite: {fileID: 8006661795802869554}
   originRotationSpeed: 360
   rotationSpeed: 1
+  lovesMeClip: {fileID: 8300000, guid: 2ce86a25af77fa6a483ac4ce7e98b03c, type: 3}
+  lovesMeNotClip: {fileID: 8300000, guid: adfddb5a03c707879b4ada1fadf467e6, type: 3}
 --- !u!50 &8711225994490943189
 Rigidbody2D:
   serializedVersion: 5

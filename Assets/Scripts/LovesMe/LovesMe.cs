@@ -3,9 +3,6 @@ using UnityEngine;
 public class LovesMe : MonoBehaviour
 {
     public GameObject PetalPrefab;
-    public SpriteRenderer FaceSprite;
-    public Sprite happySprite;
-    public Sprite sadSprite;
     public Sprite superHappySprite;
     [SerializeField] public int petals = 7;
 

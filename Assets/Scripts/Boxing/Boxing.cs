@@ -15,14 +15,13 @@ public class Boxing : MonoBehaviour
     public AudioClip weakPunchSound;
     public AudioClip strongPunchSound;
     private int minigamesPlayed;
-    private int maxDifficulty = 50;
+    public int maxDifficulty = 50;
     // Start is called before the first frame update
     void Start()
     {
         // Start the timer
         GameObject.Find("GameManager").GetComponent<GameManager>().timer = 5f;
         minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;
-        maxDifficulty = GameObject.Find("GameManager").GetComponent<GameManager>().maxDifficulty;
     }
 
     // Update is called once per frame
@@ -32,7 +31,8 @@ public class Boxing : MonoBehaviour
         {
             return;
         }
-        pointer.transform.Translate(0,direction*speed*Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/3, 1, maxDifficulty/3),0);
+        pointer.transform.Translate(0, direction * Time.deltaTime * Mathf.Clamp(speed * minigamesPlayed  * 0.048f , 5, maxDifficulty),0);
+        print ("Speed: " + speed * minigamesPlayed * 0.048f);
         if (Input.anyKeyDown)
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().timer = 0f;

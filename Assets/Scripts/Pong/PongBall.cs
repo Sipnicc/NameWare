@@ -27,7 +27,7 @@ public class PongBall : MonoBehaviour
         minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;
 
         // Set the speed.
-        Time.timeScale = Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/3, 1, maxDifficulty/10);
+        Time.timeScale = Time.timeScale = Mathf.Clamp(0.05f * minigamesPlayed, 1.5f, 2.5f);;
     }
 
     // Update is called once per frame

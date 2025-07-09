@@ -8,7 +8,7 @@ public class HighwayCar : MonoBehaviour
     public float speed = 5f;
     public float carSpawnInterval;
     private float carSpawnTimer = 0f;
-    private int maxDifficulty;
+    public float maxDifficulty = 2.5f;
     private int minigamesPlayed;
     private int direction;
     public Transform Road;
@@ -19,9 +19,8 @@ public class HighwayCar : MonoBehaviour
     public GameObject ExplosionPrefab;
     private void Start()
     {
-        maxDifficulty = GameObject.Find("GameManager").GetComponent<GameManager>().maxDifficulty;
         minigamesPlayed = GameObject.Find("GameManager").GetComponent<GameManager>().minigamesPlayed;
-        Time.timeScale = Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/3, 1, maxDifficulty/10);
+        Time.timeScale = Mathf.Clamp(0.05f * minigamesPlayed, 1.5f, 2.5f);
         // Start the timer
         GameObject.Find("GameManager").GetComponent<GameManager>().timer = 5f;
     }

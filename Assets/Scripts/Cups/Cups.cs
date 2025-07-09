@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cups : MonoBehaviour
 {
     private int minigamesPlayed;
-    private int maxDifficulty = 50;
+    public float maxDifficulty = 2.5f;
     public int maxChanges = 5;
     [SerializeField] public int changes = 0;
 
@@ -70,8 +70,8 @@ public class Cups : MonoBehaviour
                 else
                 {
                     // Move the cups to their objectives.
-                    cup1.transform.position = Vector3.MoveTowards(cup1.transform.position, cup1Objective, speed * Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/2, 1, maxDifficulty/2));
-                    cup2.transform.position = Vector3.MoveTowards(cup2.transform.position, cup2Objective, speed * Time.deltaTime * Mathf.Clamp(Mathf.Sqrt(minigamesPlayed)/2, 1, maxDifficulty/2));
+                    cup1.transform.position = Vector3.MoveTowards(cup1.transform.position, cup1Objective, speed * Time.deltaTime * Mathf.Clamp(minigamesPlayed * 0.05f, 1, maxDifficulty));
+                    cup2.transform.position = Vector3.MoveTowards(cup2.transform.position, cup2Objective, speed * Time.deltaTime * Mathf.Clamp(minigamesPlayed * 0.05f, 1, maxDifficulty));
                 }
             }
             // Anchor the ball to the correct cup.
