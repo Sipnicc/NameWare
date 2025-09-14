@@ -560,7 +560,7 @@ PrefabInstance:
       objectReference: {fileID: 256164747}
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: minigamesPlayed
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: Minigames.Array.size
@@ -569,7 +569,7 @@ PrefabInstance:
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: 'Minigames.Array.data[0]'
       value: 
-      objectReference: {fileID: 48460050376786153, guid: 57942c1557b6eb2fc8b9f0665dfed9ca, type: 3}
+      objectReference: {fileID: 4746846687015826447, guid: 87d7f3f6f82dbe79f97d0425838483d1, type: 3}
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: 'Minigames.Array.data[1]'
       value: 

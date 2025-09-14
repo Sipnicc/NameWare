@@ -524,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 1455383825}
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: Minigames.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: 'Minigames.Array.data[2]'
@@ -554,6 +554,10 @@ PrefabInstance:
       propertyPath: 'Minigames.Array.data[8]'
       value: 
       objectReference: {fileID: 48460050376786153, guid: 57942c1557b6eb2fc8b9f0665dfed9ca, type: 3}
+    - target: {fileID: 4324774157556312043, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
+      propertyPath: 'Minigames.Array.data[9]'
+      value: 
+      objectReference: {fileID: 4746846687015826447, guid: 87d7f3f6f82dbe79f97d0425838483d1, type: 3}
     - target: {fileID: 4364372396872395275, guid: 64cfe643a819be148bbc095dbcc70593, type: 3}
       propertyPath: m_Name
       value: GameManager
